@@ -234,7 +234,7 @@ def get_parser(desc, default_task="translation"):
     utils.import_user_module(usr_args)
 
     parser = argparse.ArgumentParser(allow_abbrev=False)
-    gen_parser_from_dataclass(parser, field(default_factory=CommonConfig))
+    gen_parser_from_dataclass(parser, field(default=CommonConfig))
 
     from fairseq.registry import REGISTRIES
 

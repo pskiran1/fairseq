@@ -66,7 +66,7 @@ class DecodingConfig(DecoderConfig, FlashlightDecoderConfig):
 class InferConfig(FairseqDataclass):
     task: Any = None
     decoding: DecodingConfig = DecodingConfig()
-    common: CommonConfig = field(default_factory=CommonConfig)
+    common: CommonConfig = field(default=CommonConfig)
     common_eval: CommonEvalConfig = CommonEvalConfig()
     checkpoint: CheckpointConfig = CheckpointConfig()
     distributed_training: DistributedTrainingConfig = DistributedTrainingConfig()

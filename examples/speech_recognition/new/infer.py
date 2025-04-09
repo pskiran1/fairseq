@@ -3,7 +3,7 @@
 #
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
-
+from dataclasses import dataclass, field
 import ast
 import hashlib
 import logging
@@ -66,7 +66,7 @@ class DecodingConfig(DecoderConfig, FlashlightDecoderConfig):
 class InferConfig(FairseqDataclass):
     task: Any = None
     decoding: DecodingConfig = DecodingConfig()
-    common: CommonConfig = CommonConfig()
+    common: CommonConfig = field(default_factory=CommonConfig)
     common_eval: CommonEvalConfig = CommonEvalConfig()
     checkpoint: CheckpointConfig = CheckpointConfig()
     distributed_training: DistributedTrainingConfig = DistributedTrainingConfig()

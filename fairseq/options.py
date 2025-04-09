@@ -223,7 +223,7 @@ def parse_args_and_arch(
         return args, extra
     else:
         return args
-
+from dataclasses import dataclass, field
 
 def get_parser(desc, default_task="translation"):
     # Before creating the true parser, we need to import optional user module
@@ -234,7 +234,7 @@ def get_parser(desc, default_task="translation"):
     utils.import_user_module(usr_args)
 
     parser = argparse.ArgumentParser(allow_abbrev=False)
-    gen_parser_from_dataclass(parser, CommonConfig())
+    gen_parser_from_dataclass(parser, field(default_factory=CommonConfig))
 
     from fairseq.registry import REGISTRIES
 
